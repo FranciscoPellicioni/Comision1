@@ -1,5 +1,5 @@
 try:
- num= int(input("ingrese un numero:"))
+ num= int(input())
  if num % 2 == 0 :
   print("Es divisible")
  else:
