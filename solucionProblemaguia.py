@@ -1,4 +1,4 @@
-try :
+try:
  comida = int(input("Ingrese el total de la comida: "))
  bebida_sa = int(input("Ingrese el total de la bebida sin alcohol: "))
  bebida_ca = int(input("Ingrese el total de la bebida con alcohol: "))
