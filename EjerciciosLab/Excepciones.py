@@ -2,7 +2,7 @@ try:
  num= int(input())
  if num % 2 == 0 :
   print("Es divisible")
- else:
+ else: 
     print("No es divisible")
 except ValueError :
  print("Los datos ingresados no son correctos")
