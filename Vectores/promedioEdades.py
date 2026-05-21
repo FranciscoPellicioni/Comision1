@@ -11,4 +11,4 @@ print("Las edades por encima del promedio son:")
 for i in range(10):
  if vec1[i] > promedio:
      print(vec1[i])
-
+     
