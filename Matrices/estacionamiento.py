@@ -26,7 +26,7 @@ def registrar_ingreso(matriz):
         print("Fila o sector inválido")
 
     elif matriz[fila][sector] == "L":
-        matriz[fila][sector] = "O"
+         matriz[fila][sector] == "O"
        
         print("Ingreso registrado correctamente")
     else:
@@ -43,7 +43,7 @@ def registrar_salida(matriz):
         print("Fila o sector inválido")
 
     elif matriz[fila][sector] == "O":
-        matriz[fila][sector] = "L"
+         matriz[fila][sector] == "L"
        
         print("Salida registrada correctamente")
     else:
