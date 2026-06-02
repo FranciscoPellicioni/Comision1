@@ -26,24 +26,25 @@ def registrar_ingreso(matriz,ingreso_egreso):
         print("Fila o sector inválido")
 
     elif matriz[fila][sector] == "L":
-         matriz[fila][sector] = "O"
-         plaza = ""
-         patente = ""
-         hora_entrada = ""
-         hora_salida = ""
-         vehiculo = []
-         
+
          patente = input("Ingrese la patente: ").lower()
+
          for i in range(len(ingreso_egreso)):
-            if ingreso_egreso[i][0] == patente:
+            if ingreso_egreso[i][0] == patente and ingreso_egreso[i][3] == "":
                 print("ERROR, vehiculo ya registrado")
                 return
-         plaza = input("Ingrese la plaza: ")
+
+         matriz[fila][sector] = "O"
+
+         plaza = "Fila " + str(fila + 1) + " Sector " + str(sector + 1)
          hora_entrada = input("Ingrese la hora de entrada: ")
+         hora_salida = ""
+
          vehiculo = [patente,plaza,hora_entrada,hora_salida]
          ingreso_egreso.append(vehiculo)
+
          print("Ingreso registrado correctamente")
-         
+
     else:
          print("Ese lugar ya está ocupado")
 
@@ -53,18 +54,23 @@ def registrar_salida(matriz,ingreso_egreso):
     sector = int(input("Ingrese sector del 1 al 8: ")) - 1
 
     if fila < 0 or fila >= 5 or sector < 0 or sector >= 8:
-        
         print("Fila o sector inválido")
 
     elif matriz[fila][sector] == "O":
-         matriz[fila][sector] = "L"
-         hora_salida = input("Ingrese la hora de salida: ").lower()
+
+         patente = input("Ingrese la patente del vehículo que sale: ").lower()
+         hora_salida = input("Ingrese la hora de salida: ")
+
          for i in range(len(ingreso_egreso)):
-             for j in range(3): 
+            if ingreso_egreso[i][0] == patente and ingreso_egreso[i][3] == "":
                 ingreso_egreso[i][3] = hora_salida
-         print("Salida registrada correctamente")
+                matriz[fila][sector] = "L"
+                print("Salida registrada correctamente")
+                return
+
+         print("No se encontró un vehículo activo con esa patente")
+
     else:
-        
         print("Ese lugar ya está libre")
           
 def contar_lugares(matriz):
