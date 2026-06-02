@@ -98,7 +98,6 @@ def informe(matriz,ingreso_egreso):
     print("Lugares ocupados:", ocupados)
     print("Lugares libres:", libres)
     print("Porcentaje de ocupación:", porcentaje, "%")
-
     print("Vehiculos registrados:")
     for i in range(len(ingreso_egreso)):
              print(ingreso_egreso[i])
