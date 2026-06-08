@@ -14,9 +14,9 @@ def ingreso(libros):
         if libros[i][0] == codigo:
             print("ERROR, este libro ya esta registrado")
             return
-    titulo = input("Ingrese el titulo del libro: ")
-    autor = input("Ingrese el autor del libro: ")
-    editorial = input("Ingrese la editorial del libro: ")
+    titulo = input("Ingrese el titulo del libro: ").lower()
+    autor = input("Ingrese el autor del libro: ").lower()
+    editorial = input("Ingrese la editorial del libro: ").lower()
     año = int(input("Ingrese el año de la publicacion del libro: "))
     libro = [codigo,titulo,autor,editorial,año]
     libros.append(libro)
@@ -33,9 +33,9 @@ def modificar(libros):
     codigo_buscar = int(input("Ingrese el codigo del libro a buscar: "))
     for i in range(len(libros)):
         if libros[i][0] == codigo_buscar:
-            dato = input("Seleccione el dato a modificar\nEditorial\nAño publicacion\n- ")
+            dato = input("Seleccione el dato a modificar\nEditorial\nAño publicacion\n- ").lower()
             if dato == "editorial":
-                libros[i][3] = input("Ingrese la editorial nueva: ")
+                libros[i][3] = input("Ingrese la editorial nueva: ").lower()
                 print("Dato modificado con exito")
             
             elif dato == "año publicacion":
@@ -56,7 +56,7 @@ def libros_2020(libros):
         
 def editoriales(libros):
     total = 0
-    editorial_buscar = input("Ingrese una editorial: ")
+    editorial_buscar = input("Ingrese la editorial: ").lower()
     for i in range(len(libros)):
         if libros[i][3] == editorial_buscar:
             total += 1
@@ -64,7 +64,7 @@ def editoriales(libros):
     print("Existe/n",total,"libro/s con la editorial",editorial_buscar)
 
 def buscar_titulo(libros):
-    titulo_buscar = input("Ingrese el titulo del libro a buscar: ")
+    titulo_buscar = input("Ingrese el titulo del libro a buscar: ").lower()
     existe = False
     for i in range(len(libros)):
         if libros[i][1] == titulo_buscar:

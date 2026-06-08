@@ -8,15 +8,15 @@
 
 def ingreso(vehiculos):
     vehiculo = []
-    patente = input("Ingrese la patente del vehiculo: ")
+    patente = input("Ingrese la patente del vehiculo: ").upper()
     for i in range(len(vehiculos)):
         if vehiculos[i][0] == patente:
             print("ERROR, ese vehiculo ya esta registrado")
             return
-    marca = input("Ingrese la marca: ")
-    modelo = input("Ingrese el modelo: ")
+    marca = input("Ingrese la marca: ").lower()
+    modelo = input("Ingrese el modelo: ").lower()
     año = int(input("Ingrese el año: "))
-    color = input("Ingrese el color: ")
+    color = input("Ingrese el color: ").lower()
     precio = float(input("Ingrese el precio: "))
     vehiculo = [patente,marca,modelo,año,color,precio]
     vehiculos.append(vehiculo)
@@ -30,7 +30,7 @@ def mostrar(vehiculos):
         print(vehiculos[i])
     
 def modificar(vehiculos):
-    patente_buscar = input("Ingrese la patente del vehiculo a buscar: ")
+    patente_buscar = input("Ingrese la patente del vehiculo a buscar: ").upper()
     for i in range(len(vehiculos)):
         if vehiculos[i][0] == patente_buscar: 
            dato = input("Ingrese el dato a modificar\nColor\nPrecio\n- ").lower()

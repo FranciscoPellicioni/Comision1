@@ -100,7 +100,7 @@ def informe(matriz,ingreso_egreso):
     print("Porcentaje de ocupación:", porcentaje, "%")
     print("Vehiculos registrados:")
     for i in range(len(ingreso_egreso)):
-             print(ingreso_egreso[i])
+         print(ingreso_egreso[i])
 
    
 def menu():
