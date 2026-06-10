@@ -89,11 +89,11 @@ def columna(deposito):
             if deposito[i][j] == 1:
                 cajas += 1
 
-    if cajas < menor:
-        menor = cajas
-        columnaMenor = j
+        if cajas < menor:
+            menor = cajas
+            columnaMenor = j
 
-    print("La columna con la menor cantidad de cajas es:", columnaMenor,"con",menor)
+    print("La columna con la menor cantidad de cajas es:", columnaMenor + 1,"con",menor)
     
 
             
