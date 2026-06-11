@@ -1,0 +1,2 @@
+1322|juan|admin
+12333|pedro|tecnico
