@@ -5,26 +5,35 @@
 #• 3. Salir
 
 def ingreso():
-    archivo = open("clientes.txt","r")
+    try:
+        archivo = open("clientes.txt", "r")
+    except FileNotFoundError:
+        archivo = open("clientes.txt", "a")
+        archivo.close()
+        archivo = open("clientes.txt", "r")
+
     lineas = archivo.readlines()
     archivo.close()
+
     dni = input("Ingrese el DNI: ")
+
     for linea in lineas:
         datos = linea.strip().split("|")
-        if datos[1] == dni:
-            print("ERROR, este cliente ya esta registrado")
+        if datos[0] == dni:
+            print("ERROR, este cliente ya está registrado")
             return
-    archivo = open("clientes.txt","a")
-    nombre = input("ingrese el nombre y apellido del cliente: ")
-    mail =input("Ingrese el mail: ")
+
+    nombre = input("Ingrese el nombre y apellido del cliente: ")
+    mail = input("Ingrese el mail: ")
     codigo = input("Ingrese el codigo de area: ")
     telefono = input("Ingrese el telefono: ")
     estado = "A"
-    archivo.write(dni+ "|" +nombre+ "|" +mail+ "|" +codigo+ "|" +telefono+ "|" +estado+ "\n")
+
+    archivo = open("clientes.txt", "a")
+    archivo.write(f"{dni}|{nombre}|{mail}|{codigo}|{telefono}|{estado}\n")
+    archivo.close()
 
     print("Cliente registrado correctamente")
-    archivo.close()
-    return archivo
 
 
 def mostrar():
