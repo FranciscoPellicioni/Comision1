@@ -40,7 +40,7 @@ def registro_alumnos(lista):
                     
         alumno = [nombre]
 
-        for j in range(20):
+        for j in range(15):
             alumno.append("")
 
         lista.append(alumno)
@@ -54,6 +54,7 @@ def registro_asistencia(lista):
         if clase < 1 or clase > 15:
             print("Numero de clase invalido")
             guardar_error("Se ingreso un numero de clase invalido (registro_asistencia)")
+            return
         for i in range(len(lista)):
 
             asistencia = input(f"{lista[i][0]} (P/A): ").upper()
@@ -76,6 +77,7 @@ def registro_feriado(lista):
         if clase < 1 or clase > 15:
             print("Numero de clase invalido")
             guardar_error("Se ingreso un numero de clase invalido (registro_feriado)")
+            return
         asistencia = input("Ingrese la asistencia especial,(X/F): ").upper()
         while asistencia not in ["X", "F"]:
             print("Opción inválida")
@@ -100,17 +102,17 @@ def mostrar(lista):
         print(lista[i])
 
 def mostrar_porcentaje(lista):
-    try:
-        for i in range(len(lista)):
-            presentes = 0
-            for j in range(1,len(lista[i])):
-                if lista[i][j] == "P":
-                    presentes += 1
-            porcentaje = (presentes / (len(lista[i])-1)) * 100
-            print(lista[i][0], ":", porcentaje, "%")
-        return lista,porcentaje,presentes
-    except ZeroDivisionError:
-        print("No hubo presentes en la clase")
+    for i in range(len(lista)):
+        presentes = 0
+        for j in range(1,len(lista[i])):
+            if lista[i][j] == "P":
+                presentes += 1
+        porcentaje = (presentes / (len(lista[i])-1)) * 100
+        print(lista[i][0], ":", porcentaje, "%")
+    if len(lista) == 0:
+        print("No hay alumnos registrados")
+        return
+    
 
 def asist_alumno(lista):
     encontrado = False
@@ -135,7 +137,7 @@ def mayor_asistencia(lista):
 
         if asistencias > mayor:
             mayor = asistencias
-            alumnos_mayor = lista[i][0]
+            alumnos_mayor = [lista[i][0]]
         elif asistencias == mayor:
             alumnos_mayor.append(lista[i][0])
 
